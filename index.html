@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1120">
+  <meta name="description" content="Measure your typing speed, accuracy, and progress with TypeRush.">
+  <title>TypeRush — Type Faster. Think Sharper.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/words.js" defer></script>
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#test" data-view="test" aria-label="TypeRush home">
+      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span>type<span class="brand-accent">rush</span><small>TYPE FASTER. THINK SHARPER.</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-link active" type="button" data-view="test">Test</button>
+      <button class="nav-link" type="button" data-view="history">History</button>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch theme"><span class="theme-icon" aria-hidden="true">☼</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="view test-view" id="test-view" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <div class="eyebrow">THE DAILY PRACTICE</div>
+        <h1 id="page-title">Typing<br><span>speed test.</span></h1>
+        <p>Type the passage below. Your speed and accuracy update as you go.</p>
+      </div>
+
+      <section class="test-card" aria-label="Typing speed test">
+        <div class="test-toolbar">
+          <div class="duration-control" role="group" aria-label="Test duration">
+            <button type="button" class="duration-button" data-duration="15" aria-pressed="false">15<span>s</span></button>
+            <button type="button" class="duration-button selected" data-duration="30" aria-pressed="true">30<span>s</span></button>
+            <button type="button" class="duration-button" data-duration="60" aria-pressed="false">60<span>s</span></button>
+          </div>
+          <span class="keyboard-hint"><kbd>tab</kbd> + <kbd>enter</kbd> to restart</span>
+        </div>
+        <div class="stats-row" aria-label="Live statistics">
+          <div class="stat"><span class="stat-label">WPM</span><strong id="wpm-stat">0</strong></div>
+          <div class="stat"><span class="stat-label">ACCURACY</span><strong id="accuracy-stat">100<span class="unit">%</span></strong></div>
+          <div class="stat stat-timer"><span class="stat-label">TIME LEFT</span><strong id="timer-stat">30<span class="unit">s</span></strong></div>
+          <div class="stat"><span class="stat-label">ERRORS</span><strong id="errors-stat">0</strong></div>
+        </div>
+        <div class="progress-track" aria-hidden="true"><span id="progress-bar"></span></div>
+        <div class="typing-shell" id="typing-shell">
+          <div class="typing-copy" id="typing-copy" aria-hidden="true"></div>
+          <textarea id="typing-input" class="typing-input" aria-label="Type the displayed passage here" autocomplete="off" autocapitalize="off" spellcheck="false" rows="4"></textarea>
+          <div class="typing-overlay" id="typing-overlay">
+            <span class="overlay-key">↵</span>
+            <span>Click here or start typing to begin</span>
+          </div>
+        </div>
+        <div class="test-footer">
+          <p class="test-status" id="test-status"><span class="status-indicator"></span> Ready when you are</p>
+          <button type="button" class="restart-button" id="restart-button"><span aria-hidden="true">⟳</span> Restart test</button>
+        </div>
+      </section>
+      <p class="test-note">Choose a duration and start typing.</p>
+    </section>
+
+    <section class="view result-view hidden" id="result-view" aria-labelledby="result-title" aria-live="polite">
+      <div class="result-card">
+        <div class="result-kicker"><span class="success-mark">✓</span> SESSION COMPLETE</div>
+        <h1 id="result-title">That’s a wrap.</h1>
+        <p class="result-subtitle">Every session is a step forward. Here’s how you did.</p>
+        <div class="result-score"><strong id="final-wpm">0</strong><span>WPM</span><small>WORDS PER MINUTE</small></div>
+        <div class="result-details">
+          <div><span>Accuracy</span><strong id="final-accuracy">100%</strong></div>
+          <div><span>Correct characters</span><strong id="final-correct">0</strong></div>
+          <div><span>Incorrect characters</span><strong id="final-errors">0</strong></div>
+          <div><span>Test duration</span><strong id="final-duration">30s</strong></div>
+        </div>
+        <div class="result-actions">
+          <button class="primary-button" id="try-again-button" type="button">Try again <span aria-hidden="true">→</span></button>
+          <button class="text-button" id="view-history-button" type="button">View history</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="view history-view hidden" id="history-view" aria-labelledby="history-title">
+      <div class="history-heading">
+        <div><div class="eyebrow">YOUR HISTORY</div><h1 id="history-title">Test<br><span>history.</span></h1><p>Your recent typing test results.</p></div>
+        <button type="button" class="clear-button" id="clear-history-button">Clear history <span aria-hidden="true">⌫</span></button>
+      </div>
+      <div class="history-summary">
+        <article class="summary-card best-card"><span class="summary-label">PERSONAL BEST</span><strong id="personal-best">0<small> WPM</small></strong><span class="summary-foot">Your fastest session</span></article>
+        <article class="summary-card"><span class="summary-label">TOTAL TESTS</span><strong id="total-tests">0</strong><span class="summary-foot">Practice makes progress</span></article>
+        <article class="summary-card"><span class="summary-label">AVG. ACCURACY</span><strong id="average-accuracy">—<small>%</small></strong><span class="summary-foot">Across all sessions</span></article>
+      </div>
+      <div class="history-list-card">
+        <div class="list-heading"><div><span class="eyebrow">RECENT SESSIONS</span><h2>Your history</h2></div><span id="history-count" class="history-count">0 sessions</span></div>
+        <div id="history-content"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="footer-brand" href="#test" data-view="test">type<span>rush</span></a><span>Typing speed practice.</span></footer>
+
+  <dialog class="confirm-dialog" id="clear-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-icon" aria-hidden="true">⌫</div><h2 id="dialog-title">Clear your history?</h2><p>This will permanently remove all saved test results from this browser.</p>
+    <div class="dialog-actions"><button class="text-button" id="cancel-clear" type="button">Keep history</button><button class="danger-button" id="confirm-clear" type="button">Clear everything</button></div>
+  </dialog>
+</body>
+</html>
