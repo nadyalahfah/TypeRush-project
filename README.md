@@ -1,36 +1,107 @@
-# TypeRush
+# TypeRush — Typing Speed Test
 
-**Type faster. Think sharper.** TypeRush is a lightweight typing speed test built with plain HTML, CSS, and JavaScript. It runs entirely in your browser and stores your theme and recent results locally.
+TypeRush adalah website interaktif untuk mengukur kecepatan dan ketepatan mengetik secara real-time. Website ini dikembangkan menggunakan HTML, CSS, dan JavaScript dengan tampilan modern, responsif, serta mendukung dark mode dan light mode.
 
-## Features
+Project ini dibuat sebagai latihan pengembangan frontend, khususnya dalam penerapan manipulasi DOM, event handling, timer, perhitungan statistik, dan penyimpanan data menggunakan LocalStorage.
 
-- Random English typing passages from a built-in word bank
-- 15, 30, and 60 second tests with a precise, visibility-safe timer
-- Live WPM, accuracy, error count, and character feedback
-- Session summary and up to 20 saved results
-- Personal best, average accuracy, and history management
-- Dark and light themes, responsive layout, and keyboard accessible controls
+## Fitur Utama
 
-## Run locally
+- **Typing Test** — Menguji kecepatan mengetik menggunakan teks acak.
+- **Timer** — Menyediakan pilihan durasi 15, 30, dan 60 detik.
+- **Live WPM** — Menghitung kecepatan mengetik secara real-time.
+- **Accuracy** — Menampilkan persentase ketepatan mengetik.
+- **Character Highlight** — Memberikan indikator warna pada karakter benar dan salah.
+- **Restart Test** — Mengulang pengujian dengan teks baru.
+- **Result Summary** — Menampilkan hasil akhir pengujian.
+- **Test History** — Menyimpan riwayat hasil pengujian.
+- **Personal Best** — Menampilkan kecepatan mengetik tertinggi.
+- **Dark/Light Mode** — Mengubah tema sesuai preferensi pengguna.
+- **Responsive Design** — Menyesuaikan tampilan pada desktop, tablet, dan mobile.
 
-Open `index.html` in a modern browser, or serve the folder with VS Code Live Server. The app does not need Node.js, a backend, or a network connection.
+## Teknologi yang Digunakan
 
-## Project structure
+| Teknologi | Kegunaan |
+|---|---|
+| HTML5 | Struktur halaman website |
+| CSS3 | Desain antarmuka dan responsivitas |
+| JavaScript | Logika typing test dan interaksi |
+| LocalStorage | Penyimpanan riwayat dan preferensi tema |
+| Google Fonts | Tipografi website |
+| Lucide Icons | Ikon antarmuka |
+
+## Struktur Project
 
 ```text
-index.html
-css/style.css
-js/script.js
-js/words.js
-assets/favicon.svg
-README.md
-prd.md
+typerush/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── script.js
+│   └── words.js
+├── assets/
+│   └── favicon.svg
+└── .gitignore
 ```
 
-## Storage
+## Cara Menjalankan
 
-Test history and the selected theme are stored in browser LocalStorage under `typerush_history` and `typerush_theme`. Clearing browser storage removes these preferences and results.
+1. Clone repository:
 
-## Project details
+   ```bash
+   git clone https://github.com/nadyalahfah/typerush.git
+   ```
 
-TypeRush is a small frontend project built for local use and practice.
+2. Masuk ke folder project:
+
+   ```bash
+   cd typerush
+   ```
+
+3. Buka folder menggunakan Visual Studio Code:
+
+   ```bash
+   code .
+   ```
+
+4. Install ekstensi **Live Server** di VS Code jika belum tersedia.
+5. Klik kanan file `index.html`, kemudian pilih **Open with Live Server**.
+6. Website TypeRush akan terbuka melalui browser.
+
+## Cara Menggunakan
+
+1. Buka halaman utama TypeRush.
+2. Pilih durasi pengujian (15, 30, atau 60 detik).
+3. Klik area pengetikan dan mulai mengetik teks yang ditampilkan.
+4. Timer akan berjalan otomatis setelah karakter pertama diketik.
+5. Perhatikan WPM, accuracy, dan jumlah kesalahan selama pengujian.
+6. Setelah waktu habis, hasil pengujian akan ditampilkan.
+7. Klik **Try Again** untuk mengulang tes atau buka **History** untuk melihat hasil sebelumnya.
+
+## Perhitungan Statistik
+
+**Words Per Minute (WPM)**
+
+Kecepatan mengetik dihitung berdasarkan jumlah karakter benar, dengan asumsi lima karakter setara dengan satu kata.
+
+```text
+WPM = (Karakter Benar / 5) / Waktu (menit)
+```
+
+**Accuracy**
+
+Ketepatan mengetik dihitung berdasarkan perbandingan jumlah karakter benar dengan total karakter yang diketik.
+
+```text
+Accuracy = (Karakter Benar / Total Karakter) × 100%
+```
+
+## Penyimpanan Data
+
+TypeRush menggunakan LocalStorage untuk menyimpan riwayat pengujian dan preferensi tema secara lokal di browser.
+
+Riwayat dibatasi hingga 20 hasil terbaru. Data tetap tersedia setelah halaman dimuat ulang selama penyimpanan browser tidak dihapus.
+
+---
+
+© 2026 TypeRush. All Rights Reserved.
